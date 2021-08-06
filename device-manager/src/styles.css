@@ -26,3 +26,9 @@ button {
 * {
   font-family: "Montserrat", sans-serif;
 }
+.columns {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 50%;
+}

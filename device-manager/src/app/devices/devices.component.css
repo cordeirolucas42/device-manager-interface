@@ -1,11 +1,11 @@
-/* CategoryComponent's private CSS styles */
-.categories {
+/* DeviceComponent's private CSS styles */
+.devices {
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
   width: 15em;
 }
-.categories li {
+.devices li {
   cursor: pointer;
   position: relative;
   left: 0;
@@ -15,24 +15,24 @@
   height: 1.6em;
   border-radius: 4px;
 }
-.categories li:hover {
+.devices li:hover {
   color: #2c3a41;
   background-color: #e6e6e6;
   left: 0.1em;
 }
-.categories li.selected {
+.devices li.selected {
   background-color: black;
   color: white;
 }
-.categories li.selected:hover {
+.devices li.selected:hover {
   background-color: #505050;
   color: white;
 }
-.categories li.selected:active {
+.devices li.selected:active {
   background-color: black;
   color: white;
 }
-.categories .badge {
+.devices .badge {
   display: inline-block;
   font-size: small;
   color: white;
@@ -51,7 +51,7 @@ input {
   padding: 0.5rem;
 }
 
-.categoryForm {
+.deviceForm {
   display: flex;
   flex-flow: column nowrap;
 }
