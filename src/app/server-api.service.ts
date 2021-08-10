@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Category } from './category';
 import { Device } from './device';
-import { CATEGORIES } from './mock-categories';
-import { DEVICES } from './mock-devices';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -12,8 +10,7 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ServerApiService {
-  private apiURL =
-    'http://ec2-54-94-254-219.sa-east-1.compute.amazonaws.com:9000'; // URL to web api
+  private apiURL = 'http://ec2-54-94-254-219.sa-east-1.compute.amazonaws.com'; // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
