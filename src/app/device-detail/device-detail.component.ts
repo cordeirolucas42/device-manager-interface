@@ -41,7 +41,7 @@ export class DeviceDetailComponent implements OnInit {
   delete(): void {
     if (this.device) {
       this.serverApiService
-        .deleteDevice(this.device.id)
+        .deleteDevice(this.device.id!)
         .subscribe(() => this.location.back());
     }
   }

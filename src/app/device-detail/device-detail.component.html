@@ -7,7 +7,7 @@
       <option
         *ngFor="let category of categories"
         [value]="category.id"
-        [selected]="category.id === device.Category.id"
+        [selected]="category.id === device.Category!.id"
       >
         {{ category.name }}
       </option>

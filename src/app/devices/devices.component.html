@@ -1,9 +1,47 @@
 <h2>All Devices</h2>
+<div class="deviceForm">
+  <label for="category">Category: </label>
+  <select name="category" id="category" #deviceCategoryId>
+    <option
+      *ngFor="let category of categories"
+      [value]="category.id"
+      [selected]="category === categories[0]"
+    >
+      {{ category.name }}
+    </option>
+  </select>
+  <label for="color">Color: </label>
+  <input type="text" id="color" placeholder="color" #deviceColor />
+  <label for="partNumber">Part Number: </label>
+  <input
+    type="text"
+    id="partNumber"
+    placeholder="partNumber"
+    #devicePartNumber
+  />
+  <button
+    class="add-button"
+    (click)="
+      create({
+        CategoryId: +deviceCategoryId.value,
+        color: deviceColor.value,
+        partNumber: +devicePartNumber.value
+      })
+    "
+  >
+    <!-- ;
+      deviceCategoryId.value = '';
+      deviceColor.value = '';
+      devicePartNumber.value = ''
+    " -->
+    Add Device
+  </button>
+</div>
 <ul class="devices">
   <li *ngFor="let device of devices">
     <a routerLink="/devices/{{ device.id }}">
       <span class="badge">{{ device.partNumber }}</span
-      >{{ device.Category.name }}
+      >{{ device.Category!.name }}
     </a>
   </li>
 </ul>

@@ -1,4 +1,14 @@
 <h2>All Categories</h2>
+<div class="categoryForm">
+  <label for="new-category">Category Name: </label>
+  <input id="new-category" #categoryName />
+  <button
+    class="add-button"
+    (click)="create({ name: categoryName.value }); categoryName.value = ''"
+  >
+    Add Category
+  </button>
+</div>
 <ul class="categories">
   <li *ngFor="let category of categories">
     <a routerLink="/categories/{{ category.id }}">

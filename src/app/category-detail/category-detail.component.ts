@@ -32,7 +32,7 @@ export class CategoryDetailComponent implements OnInit {
   delete(): void {
     if (this.category) {
       this.serverApiService
-        .deleteCategory(this.category.id)
+        .deleteCategory(this.category.id!)
         .subscribe(() => this.location.back());
     }
   }
