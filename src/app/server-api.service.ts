@@ -10,7 +10,7 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ServerApiService {
-  private apiURL = 'http://ec2-54-94-254-219.sa-east-1.compute.amazonaws.com'; // URL to web api
+  private apiURL = 'https://device-manager-api42.herokuapp.com'; // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
