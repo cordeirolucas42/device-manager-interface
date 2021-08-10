@@ -1,0 +1,32 @@
+<div *ngIf="device">
+  <h2>{{ device.partNumber }} Details</h2>
+  <div><span>Id: </span>{{ device.id }}</div>
+  <div class="deviceForm">
+    <label for="category">Category: </label>
+    <select name="category" id="category" [(ngModel)]="device.CategoryId">
+      <option
+        *ngFor="let category of categories"
+        [value]="category.id"
+        [selected]="category.id === device.Category.id"
+      >
+        {{ category.name }}
+      </option>
+    </select>
+    <!-- DROPDOWN LIST SELECTION IS NOT WORKING YET -->
+    <label for="color">Color: </label>
+    <input
+      type="text"
+      id="color"
+      [(ngModel)]="device.color"
+      placeholder="color"
+    />
+    <label for="partNumber">Part Number: </label>
+    <input
+      type="text"
+      id="partNumber"
+      [(ngModel)]="device.partNumber"
+      placeholder="partNumber"
+    />
+  </div>
+  <button (click)="delete()">Delete</button>
+</div>

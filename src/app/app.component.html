@@ -1,5 +1,7 @@
 <h1>{{ title }}</h1>
-<div class="columns">
-  <app-category></app-category>
-  <app-devices></app-devices>
-</div>
+<nav>
+  <a routerLink="/devices">Devices</a>
+  <a routerLink="/categories">Categories</a>
+</nav>
+<router-outlet></router-outlet>
+<app-messages></app-messages>

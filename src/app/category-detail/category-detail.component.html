@@ -1,0 +1,14 @@
+<div *ngIf="category">
+  <h2>{{ category.name }} Details</h2>
+  <div><span>Id: </span>{{ category.id }}</div>
+  <div class="categoryForm">
+    <label for="name">Category Name: </label>
+    <input
+      type="text"
+      [(ngModel)]="category.name"
+      id="name"
+      placeholder="name"
+    />
+  </div>
+  <button (click)="delete()">Delete</button>
+</div>

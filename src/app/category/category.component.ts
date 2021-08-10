@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../category';
-import { CATEGORIES } from '../mock-categories';
+import { ServerApiService } from '../server-api.service';
 
 @Component({
   selector: 'app-category',
@@ -8,13 +8,16 @@ import { CATEGORIES } from '../mock-categories';
   styleUrls: ['./category.component.css'],
 })
 export class CategoryComponent implements OnInit {
-  constructor() {}
-  ngOnInit(): void {}
-
-  onSelect(category: Category): void {
-    this.selectedCategory = category;
+  constructor(private serverApiService: ServerApiService) {}
+  ngOnInit(): void {
+    this.getCategories();
   }
 
-  selectedCategory?: Category;
-  categories = CATEGORIES;
+  categories: Category[] = [];
+
+  getCategories(): void {
+    this.serverApiService
+      .getCategories()
+      .subscribe((categories) => (this.categories = categories));
+  }
 }

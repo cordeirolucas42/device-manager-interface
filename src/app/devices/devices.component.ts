@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../category';
 import { Device } from '../device';
-import { CATEGORIES } from '../mock-categories';
-import { DEVICES } from '../mock-devices';
+import { ServerApiService } from '../server-api.service';
 
 @Component({
   selector: 'app-devices',
@@ -10,24 +9,34 @@ import { DEVICES } from '../mock-devices';
   styleUrls: ['./devices.component.css'],
 })
 export class DevicesComponent implements OnInit {
-  constructor() {}
-  ngOnInit(): void {}
-
-  onSelect(device: Device): void {
-    this.selectedDevice = device;
+  constructor(private serverApiService: ServerApiService) {}
+  ngOnInit(): void {
+    this.getDevices();
+    this.getCategories();
   }
 
   categoryOf(device: Device): Category {
     let thisCategory = null;
-    for (let category of CATEGORIES) {
+    for (let category of this.categories) {
       if (category.id === device.id) {
         thisCategory = category;
       }
     }
-    return thisCategory ? thisCategory : CATEGORIES[0];
+    return thisCategory ? thisCategory : this.categories[0];
   }
 
-  selectedDevice?: Device;
-  devices = DEVICES;
-  categories = CATEGORIES;
+  devices: Device[] = [];
+  categories: Category[] = [];
+
+  getDevices(): void {
+    this.serverApiService
+      .getDevices()
+      .subscribe((devices) => (this.devices = devices));
+  }
+
+  getCategories(): void {
+    this.serverApiService
+      .getCategories()
+      .subscribe((categories) => (this.categories = categories));
+  }
 }

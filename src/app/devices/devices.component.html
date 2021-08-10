@@ -1,39 +1,9 @@
 <h2>All Devices</h2>
 <ul class="devices">
-  <li
-    *ngFor="let device of devices"
-    (click)="onSelect(device)"
-    [class.selected]="device === selectedDevice"
-  >
-    <span class="badge">{{ device.partNumber }}</span
-    >{{ categoryOf(device).name }}
+  <li *ngFor="let device of devices">
+    <a routerLink="/devices/{{ device.id }}">
+      <span class="badge">{{ device.partNumber }}</span
+      >{{ device.Category.name }}
+    </a>
   </li>
 </ul>
-
-<div *ngIf="selectedDevice">
-  <h2>{{ selectedDevice.partNumber }} Details</h2>
-  <div><span>Id: </span>{{ selectedDevice.id }}</div>
-  <div class="deviceForm">
-    <label for="category">Category: </label>
-    <select name="category" id="category" [(ngModel)]="selectedDevice.category">
-      <option *ngFor="let category of categories" [value]="category.id">
-        {{ category.name }}
-      </option>
-    </select>
-    <!-- DROPDOWN LIST SELECTION IS NOT WORKING YET -->
-    <label for="color">Color: </label>
-    <input
-      type="text"
-      id="color"
-      [(ngModel)]="selectedDevice.color"
-      placeholder="color"
-    />
-    <label for="partNumber">Part Number: </label>
-    <input
-      type="text"
-      id="partNumber"
-      [(ngModel)]="selectedDevice.partNumber"
-      placeholder="partNumber"
-    />
-  </div>
-</div>
