@@ -3,12 +3,7 @@
   <div><span>Id: </span>{{ category.id }}</div>
   <div class="categoryForm">
     <label for="name">Category Name: </label>
-    <input
-      type="text"
-      [(ngModel)]="category.name"
-      id="name"
-      placeholder="name"
-    />
+    <input type="text" id="name" READONLY value="{{ category.name }}" />
   </div>
   <button (click)="delete()">Delete</button>
 </div>
