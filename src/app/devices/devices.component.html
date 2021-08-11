@@ -1,4 +1,4 @@
-<h2>All Devices</h2>
+<h2>New Device:</h2>
 <div class="deviceForm">
   <label for="category">Category: </label>
   <select name="category" id="category" #deviceCategoryId>
@@ -36,12 +36,14 @@
     " -->
     Add Device
   </button>
+  <app-messages></app-messages>
 </div>
+<h2>All Devices:</h2>
 <ul class="devices">
   <li *ngFor="let device of devices">
     <a routerLink="/devices/{{ device.id }}">
       <span class="badge">{{ device.partNumber }}</span
-      >{{ device.Category!.name }}
+      >{{ device.color }} {{ device.Category!.name }}
     </a>
   </li>
 </ul>
