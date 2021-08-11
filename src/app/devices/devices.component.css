@@ -1,9 +1,9 @@
 /* DeviceComponent's private CSS styles */
 .devices {
-  margin: 0 0 2em 0;
+  margin: 2em 0;
   list-style-type: none;
   padding: 0;
-  width: 15em;
+  width: 20em;
 }
 .devices li {
   position: relative;
@@ -18,7 +18,7 @@
   color: #333;
   text-decoration: none;
   background-color: #eee;
-  margin: 0.5em;
+  margin: 0.5em 0;
   padding: 0.3em 0;
   height: 1.6em;
   border-radius: 4px;
@@ -47,18 +47,30 @@
   left: -1px;
   top: -4px;
   height: 1.8em;
-  min-width: 16px;
+  min-width: 40px;
   text-align: right;
   margin-right: 0.8em;
   border-radius: 4px 0 0 4px;
 }
 
-input {
+input,
+select,
+option {
   padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+label {
+  padding: 0.5rem 0;
+}
+
+button {
+  padding: 0.5rem;
+  margin: 0.5rem 0;
 }
 
 .deviceForm {
   display: flex;
   flex-flow: column nowrap;
-  max-width: 30%;
+  width: 20em;
 }

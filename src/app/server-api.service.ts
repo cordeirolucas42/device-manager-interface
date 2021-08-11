@@ -26,7 +26,7 @@ export class ServerApiService {
       .post<Device>(`${this.apiURL}/devices`, newDevice, this.httpOptions)
       .pipe(
         tap((newDevice: Device) =>
-          this.messageService.add(`created new device with id=${newDevice.id}`)
+          this.messageService.add(`Created new device with id=${newDevice.id}`)
         ),
         catchError(this.handleError<Device>(`createDevice`))
       );
@@ -34,14 +34,14 @@ export class ServerApiService {
 
   getDevices(): Observable<Device[]> {
     return this.http.get<Device[]>(`${this.apiURL}/devices`).pipe(
-      tap((_) => this.messageService.add('fetched devices')),
+      tap((_) => this.messageService.add('')),
       catchError(this.handleError<Device[]>('getDevices', []))
     );
   }
 
   getDevice(id: number): Observable<Device> {
     return this.http.get<Device>(`${this.apiURL}/devices/${id}`).pipe(
-      tap((_) => this.messageService.add(`fetched device id=${id}`)),
+      tap((_) => this.messageService.add('')),
       catchError(this.handleError<Device>(`getDevice id=${id}`))
     );
   }
@@ -50,7 +50,7 @@ export class ServerApiService {
     return this.http
       .delete<Device>(`${this.apiURL}/devices/${id}`, this.httpOptions)
       .pipe(
-        tap((_) => this.messageService.add(`deleted device id=${id}`)),
+        tap((_) => this.messageService.add(`Deleted device id=${id}`)),
         catchError(this.handleError<Device>(`deleteDevice id=${id}`))
       );
   }
@@ -65,7 +65,7 @@ export class ServerApiService {
       .pipe(
         tap((newCategory: Category) =>
           this.messageService.add(
-            `created new category with id=${newCategory.id}`
+            `Created new category with id=${newCategory.id}`
           )
         ),
         catchError(this.handleError<Category>(`createCategory`))
@@ -74,14 +74,14 @@ export class ServerApiService {
 
   getCategories(): Observable<Category[]> {
     return this.http.get<Category[]>(`${this.apiURL}/categories`).pipe(
-      tap((_) => this.messageService.add('fetched categories')),
+      tap((_) => this.messageService.add('')),
       catchError(this.handleError<Category[]>('getCategories', []))
     );
   }
 
   getCategory(id: number): Observable<Category> {
     return this.http.get<Category>(`${this.apiURL}/categories/${id}`).pipe(
-      tap((_) => this.messageService.add(`fetched category id=${id}`)),
+      tap((_) => this.messageService.add('')),
       catchError(this.handleError<Category>(`getCategory id=${id}`))
     );
   }
@@ -90,7 +90,7 @@ export class ServerApiService {
     return this.http
       .delete<Category>(`${this.apiURL}/categories/${id}`, this.httpOptions)
       .pipe(
-        tap((_) => this.messageService.add(`deleted category id=${id}`)),
+        tap((_) => this.messageService.add(`Deleted category id=${id}`)),
         catchError(this.handleError<Category>(`deleteCategory id=${id}`))
       );
   }
