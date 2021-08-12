@@ -19,32 +19,26 @@ export class DevicesComponent implements OnInit {
     this.getCategories();
   }
 
-  categoryOf(device: Device): Category {
-    let thisCategory = null;
-    for (let category of this.categories) {
-      if (category.id === device.id) {
-        thisCategory = category;
-      }
-    }
-    return thisCategory ? thisCategory : this.categories[0];
-  }
-
+  isToggled: boolean = false;
   devices: Device[] = [];
   categories: Category[] = [];
 
   getDevices(): void {
+    this.isToggled = false;
     this.serverApiService
       .getDevices()
       .subscribe((devices) => (this.devices = devices));
   }
 
   getCategories(): void {
+    this.isToggled = false;
     this.serverApiService
       .getCategories()
       .subscribe((categories) => (this.categories = categories));
   }
 
   create(newDevice: Device): void {
+    this.isToggled = false;
     // VALIDATE COLOR FIELD
     if (
       !newDevice.color ||
