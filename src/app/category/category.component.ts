@@ -17,9 +17,11 @@ export class CategoryComponent implements OnInit {
     this.getCategories();
   }
 
+  isToggled: boolean = false;
   categories: Category[] = [];
 
   getCategories(): void {
+    this.isToggled = false;
     this.serverApiService
       .getCategories()
       .subscribe((categories) => (this.categories = categories));
@@ -32,6 +34,7 @@ export class CategoryComponent implements OnInit {
       );
       return;
     }
+    this.isToggled = false;
     this.serverApiService
       .createCategory({ name: newCategory.name })
       .subscribe(() => this.getCategories());

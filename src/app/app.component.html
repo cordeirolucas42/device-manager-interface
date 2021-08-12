@@ -1,6 +1,16 @@
 <h1>{{ title }}</h1>
 <nav>
-  <a routerLink="/devices">Devices</a>
-  <a routerLink="/categories">Categories</a>
+  <a
+    (click)="activeMenu = 'Devices'"
+    [class.active]="activeMenu === 'Devices'"
+    routerLink="/devices"
+    >Devices</a
+  >
+  <a
+    (click)="activeMenu = 'Categories'"
+    [class.active]="activeMenu === 'Categories'"
+    routerLink="/categories"
+    >Categories</a
+  >
 </nav>
 <router-outlet></router-outlet>

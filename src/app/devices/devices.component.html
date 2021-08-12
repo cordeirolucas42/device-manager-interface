@@ -6,8 +6,11 @@
       >{{ device.color }} {{ device.Category!.name }}
     </a>
   </li>
+  <div *ngIf="!isToggled" class="newButton" (click)="isToggled = !isToggled">
+    Add Device
+  </div>
 </ul>
-<div class="formDiv">
+<div *ngIf="isToggled" class="formDiv">
   <h2>New Device:</h2>
   <label for="category">Category: </label>
   <select name="category" id="category" #deviceCategoryId>

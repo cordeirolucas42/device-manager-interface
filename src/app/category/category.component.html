@@ -5,8 +5,11 @@
       <span class="badge">{{ category.id }}</span> {{ category.name }}
     </a>
   </li>
+  <div *ngIf="!isToggled" class="newButton" (click)="isToggled = !isToggled">
+    Add Category
+  </div>
 </ul>
-<div class="formDiv">
+<div *ngIf="isToggled" class="formDiv">
   <h2>New Category:</h2>
   <label for="new-category">Category Name: </label>
   <input id="new-category" #categoryName />
