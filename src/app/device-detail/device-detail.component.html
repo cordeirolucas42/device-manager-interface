@@ -1,7 +1,9 @@
 <div *ngIf="device">
-  <h2>{{ device.partNumber }} Details</h2>
-  <div><span>Id: </span>{{ device.id }}</div>
-  <div class="deviceForm">
+  <div class="formDiv">
+    <h2>{{ device.color }} {{ device.Category!.name }} Details</h2>
+    <div>
+      <span><strong>Id:</strong></span> {{ device.id }}
+    </div>
     <label for="category">Category: </label>
     <input
       type="text"
@@ -18,6 +20,6 @@
       value="{{ device.partNumber }}"
       READONLY
     />
+    <button (click)="delete()">Delete</button>
   </div>
-  <button (click)="delete()">Delete</button>
 </div>
