@@ -3,32 +3,161 @@
 @import url("https://fonts.googleapis.com/css2?family=Georama:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;1,400&display=swap");
 h1 {
-  color: rgb(29, 122, 150);
+  color: #000;
   font-family: "Georama", sans-serif;
-  font-size: 250%;
+  margin: 0.5em 0;
 }
 h2,
 h3 {
-  color: #444;
+  color: #000;
   font-family: "Georama", sans-serif;
-  font-weight: lighter;
+  font-weight: 500;
+  margin: 0.5em 0;
 }
 body {
-  margin: 2em;
+  padding: 0;
+  margin: 0;
+  /* background-color: #f5c396; */
+}
+app-root {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
 body,
 input[type="text"],
 button {
-  color: #333;
+  color: #000;
   font-family: "Montserrat", sans-serif;
 }
 /* everywhere else */
 * {
   font-family: "Montserrat", sans-serif;
 }
-.columns {
+nav {
+  width: 320px;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: space-between;
-  width: 50%;
+}
+nav a {
+  font-family: "Georama", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.5rem;
+  text-decoration: none;
+  display: inline-block;
+  background-color: #f5fdc6;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 4px;
+  min-width: 8.4em;
+}
+
+nav a:hover {
+  color: white;
+  background-color: #41521f;
+}
+nav a.active {
+  background-color: black;
+}
+
+input,
+select {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 4px;
+}
+
+label {
+  padding-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+button {
+  font-weight: bold;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 4px;
+}
+button:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+.formDiv {
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: #f5fdc6;
+  width: 320px;
+  padding: 0.5rem 2rem;
+  margin-top: 1.5rem;
+  border-radius: 15px;
+}
+
+.itemList {
+  margin: 0;
+  padding: 0.5rem 2rem;
+  list-style-type: none;
+  width: 320px;
+  border-radius: 15px;
+}
+.itemList li {
+  position: relative;
+  cursor: pointer;
+  transition: left 0.5s;
+  transition-timing-function: ease-in;
+}
+
+.itemList li:hover {
+  left: -0.2em;
+}
+
+.itemList a {
+  color: #000;
+  text-decoration: none;
+  /* background-color: #f5fdc6; */
+  background-color: #fff;
+  margin: 0.5em 0;
+  padding: 0.3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+  border: 1px solid #41521f;
+  transition: background-color 0.5s;
+  transition-timing-function: ease-in;
+}
+.itemList a:hover {
+  color: #000;
+  background-color: #f5fdc6;
+}
+.itemList a:active {
+  background-color: #525252;
+  color: #fafafa;
+}
+
+.itemList .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  /* background-color: #41521f; */
+  background-color: #000;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -5px;
+  height: 1.9em;
+  /* min-width: 16px; */
+  text-align: right;
+  margin-right: 0.8em;
+  border-radius: 4px 0 0 4px;
 }
