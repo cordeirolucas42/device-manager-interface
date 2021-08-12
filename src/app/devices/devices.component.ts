@@ -38,7 +38,6 @@ export class DevicesComponent implements OnInit {
   }
 
   create(newDevice: Device): void {
-    this.isToggled = false;
     // VALIDATE COLOR FIELD
     if (
       !newDevice.color ||
@@ -62,6 +61,7 @@ export class DevicesComponent implements OnInit {
       this.messageService.add(`Device category cannot be empty`);
       return;
     }
+    this.isToggled = false;
     this.serverApiService
       .createDevice(newDevice)
       .subscribe(() => this.getDevices());
